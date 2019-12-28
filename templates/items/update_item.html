@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+{% load add_attr %}
+
+{% block title %} Update Item {% endblock %}
+
+{% block content %}
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-edit"></i>Update an Item</h1>
+          <p>Update Item</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="#">Update Item</a></li>
+        </ul>
+      </div>
+      <div class="row">
+
+         <!-- My Forrrrrrrrrrrrrrrrrrm -->
+
+          <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Update Item</h3>
+            <div class="tile-body">
+              <form method="post" enctype="multipart/form-data">
+
+                  {% csrf_token %}
+                  {{ form.non_field_errors }}
+
+                <div class="form-group">
+                {{ form.name.errors }}
+                <label class="control-label" for="{{ form.name.id_for_label }}">Name</label>
+                {{ form.name|add_attr:"class:form-control,placeholder:Enter Item Name" }}
+                </div>
+                  <div class="form-group">
+                {{ form.total_count.errors }}
+                <label class="control-label" for="{{ form.total_count.id_for_label }}">Total Count</label>
+                {{ form.total_count|add_attr:"class:form-control,placeholder:Enter Item Total Count" }}
+                </div>
+                <div class="form-group">
+                {{ form.price.errors }}
+                <label class="control-label" for="{{ form.price.id_for_label }}">Price</label>
+                {{ form.price|add_attr:"class:form-control,placeholder:Enter Item Price" }}
+                </div>
+                <div class="form-group">
+                    {{ form.tags.errors }}
+                    <label for="{{ form.tags.id_for_label }}">Tags</label>
+                    {{ form.tags|add_attr:"class:form-control" }}
+                  </div>
+                  <div class="form-group">
+                    {{ form.branch.errors }}
+                    <label for="{{ form.branch.id_for_label }}">Branch</label>
+                    {{ form.branch|add_attr:"class:form-control" }}
+                  </div>
+                  <div class="form-group">
+                    {{ form.description.errors }}
+                    <label for="{{ form.description.id_for_label }}">Description</label>
+                    {{ form.description|add_attr:"class:form-control,placeholder:Enter Item Description" }}
+                  </div>
+                  <div class="form-group">
+                      {{ form.photo.errors }}
+                    <label for="{{ form.photo.id_for_label }}">Photo</label>
+                      {{ form.photo|add_attr:"class:form-control-file,aria-describedby=fileHelp" }}
+                  </div>
+                  <div class="tile-footer">
+              <button class="btn btn-primary" type="Submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save</button>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </main>
+
+
+{% endblock %}

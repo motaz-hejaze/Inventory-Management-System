@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block title %}  List Users  {% endblock %}
+
+
+{% block content %}
+
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-th-list"></i>Users Table</h1>
+          <p>Table to display list of users data</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item active"><a href="#">Users Table</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+                {% if users.has_other_pages %}
+                <div class="btn-group float-right">
+    <ul class="pagination">
+  {% if users.has_previous %}
+        <li><a href="?page={{ users.previous_page_number }}"><button class="btn btn-primary btn-sm" type="button"><</button></a></li>
+  {% else %}
+    <li class="disabled"><button class="btn btn-primary btn-sm" type="button"><span><</span></button></li>
+  {% endif %}
+  {% for i in users.paginator.page_range %}
+    {% if users.number == i %}
+        <li class="active"><span><button class="btn btn-primary btn-sm" type="button">{{ i }}</button><span class="sr-only">(current)</span></span></li>
+  {% endif %}
+{% endfor %}
+{% if users.has_next %}
+        <li><a href="?page={{ users.next_page_number }}"><button class="btn btn-primary btn-sm" type="button">></button></a></li>
+     {% else %}
+     <li class="disabled"><button class="btn btn-primary btn-sm" type="button"><span>></span></button></li>
+    {% endif %}
+ </ul>
+ </div>
+ {% endif %}
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Branch</th>
+                    <th>Show</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>{{ user.branch }}</td>
+                    <td><a href="{% url 'user-show' user.id %}">Show</a></td>
+                    <td><a href="{% url 'user-update' user.id %}">Update</a></td>
+                    <td><a href="#" onclick="ask_before_delete({{ user.id }})">Delete</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+{% endblock %}
+
+{% block delete %}
+<script>
+  function ask_before_delete(id){
+      	swal({
+      		title: "Are you sure?",
+      		text: "You will not be able to recover this entry",
+      		type: "warning",
+      		showCancelButton: true,
+      		confirmButtonText: "Yes, delete it!",
+      		cancelButtonText: "No, cancel plx!",
+      		closeOnConfirm: true,
+      		closeOnCancel: true
+      	}, function(isConfirm) {
+      		if (isConfirm) {
+      		    window.location.assign("/user/"+id+"/delete/");
+      			swal("Deleted!", "Entry has been deleted.", "success");
+      		} else {
+      			swal("Cancelled", "Entry is safe :)", "error");
+      		}
+      	});
+      };
+    </script>
+{% endblock %}
+

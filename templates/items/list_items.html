@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}  List Items  {% endblock %}
+
+
+{% block content %}
+
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-th-list"></i>Items Table</h1>
+          <p>Table to display list of items data</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item active"><a href="#">Items Table</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+                            {% if items.has_other_pages %}
+                <div class="btn-group float-right">
+    <ul class="pagination">
+  {% if items.has_previous %}
+        <li><a href="?page={{ items.previous_page_number }}"><button class="btn btn-primary btn-sm" type="button"><</button></a></li>
+  {% else %}
+    <li class="disabled"><button class="btn btn-primary btn-sm" type="button"><span><</span></button></li>
+  {% endif %}
+  {% for i in items.paginator.page_range %}
+    {% if items.number == i %}
+        <li class="active"><span><button class="btn btn-primary btn-sm" type="button">{{ i }}</button><span class="sr-only">(current)</span></span></li>
+  {% endif %}
+{% endfor %}
+{% if items.has_next %}
+        <li><a href="?page={{ items.next_page_number }}"><button class="btn btn-primary btn-sm" type="button">></button></a></li>
+     {% else %}
+     <li class="disabled"><button class="btn btn-primary btn-sm" type="button"><span>></span></button></li>
+    {% endif %}
+ </ul>
+ </div>
+ {% endif %}
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>description</th>
+                    <th>price</th>
+                    <th>total_count</th>
+                    <th>Show</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                  <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.branch }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.total_count }}</td>
+                    <td><a href="{% url 'item-show' item.id %}">Show</a></td>
+                    <td><a href="{% url 'item-update' item.id %}">Update</a></td>
+                    <td><a href="#" onclick="ask_before_delete({{ item.id }})">Delete</a></td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+{% endblock %}
+
+{% block delete %}
+<script>
+  function ask_before_delete(id){
+      	swal({
+      		title: "Are you sure?",
+      		text: "You will not be able to recover this entry",
+      		type: "warning",
+      		showCancelButton: true,
+      		confirmButtonText: "Yes, delete it!",
+      		cancelButtonText: "No, cancel plx!",
+      		closeOnConfirm: true,
+      		closeOnCancel: true
+      	}, function(isConfirm) {
+      		if (isConfirm) {
+      		    window.location.assign("/item/"+id+"/delete/");
+      			swal("Deleted!", "Entry has been deleted.", "success");
+      		} else {
+      			swal("Cancelled", "Entry is safe :)", "error");
+      		}
+      	});
+      };
+    </script>
+{% endblock %}

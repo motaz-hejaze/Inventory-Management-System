@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4ee65940-52ee-4c3c-ab4a-737f0fc47945" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../core/migrations/0003_user_address.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../core/migrations/0004_auto_20191224_1541.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../db.sqlite3-journal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../media/items_images/item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../media/users_images/anonymous.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../media/users_images/me.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../media/users_images/me_VJzFr9f.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../requirements_inventory_project.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../static/images/anonymous.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../static/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../static/images/item.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/templates.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/401.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/branches/create_branch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/branches/list_branches.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/branches/update_branch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/create_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/list_items.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/show_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/update_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tags/create_tag.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tags/list_tags.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tags/update_tag.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/create_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users/show_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_accounts.txt" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1VcNHdga8IYnei8MW5B9zft74kn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ee65940-52ee-4c3c-ab4a-737f0fc47945" name="Default Changelist" comment="" />
+      <created>1577548336457</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577548336457</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

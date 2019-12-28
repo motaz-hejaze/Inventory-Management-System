@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %} Item Detail {% endblock %}
+
+{% block content %}
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-file-text-o"></i>Item Details</h1>
+          <p> All Item Details </p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="#">Item Details</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <section class="invoice">
+              <div class="row mb-4">
+                <div class="col-6">
+                  <h2 class="page-header"><img src="{% if item.photo %}{{ item.photo.url }}{% else %}{% static '/images/item.png' %}{% endif %}" style="border: 5px solid rgb(0,150,136);border-radius:10px;" height="300px" width="300px"></h2>
+                </div>
+                <div class="col-6">
+                  <h5 class="text-right">{{ item.created_at }}</h5>
+                </div>
+              </div>
+              <div class="row invoice-info">
+                <div class="col-4">
+                  <address class="show_object"><strong>{{ item.name }}</strong>
+                    <br>
+                    Description: {{ item.description }}
+                    <br>
+                    Branch: {{ item.branch.name }}
+                    <br>
+                    Price: {{ item.price }}
+                    <br>
+                    Total Count: {{ item.total_count }}
+                    <br>
+                    Tags:
+                    {% for tag in item.tags.all %}
+                      {{ tag }}
+                    {% endfor %}
+                    <br>
+                    Creation Date: {{ item.created_at }}
+                    {% if item.updated_at %}
+                    <br>
+                    Last Update: {{ item.updated_at }}
+                    {% endif %}
+                  </address>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-right">
+                  <a class="btn btn-primary" href="{% url 'items-list' %}">Back To Main List</a>
+                <a class="btn btn-primary" href="{% url 'item-update' item.id %}">Update Item</a>
+                <a href="#" onclick="ask_before_delete({{ item.id }})" class="btn btn-danger">Delete Item</a>
+                </div>
+
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}
+
+{% block delete %}
+
+<script>
+  function ask_before_delete(id){
+      	swal({
+      		title: "Are you sure?",
+      		text: "You will not be able to recover this entry",
+      		type: "warning",
+      		showCancelButton: true,
+      		confirmButtonText: "Yes, delete it!",
+      		cancelButtonText: "No, cancel plx!",
+      		closeOnConfirm: true,
+      		closeOnCancel: true
+      	}, function(isConfirm) {
+      		if (isConfirm) {
+      		    window.location.assign("/item/"+id+"/delete/");
+      			swal("Deleted!", "Entry has been deleted.", "success");
+      		} else {
+      			swal("Cancelled", "Entry is safe :)", "error");
+      		}
+      	});
+      };
+    </script>
+
+{% endblock %}

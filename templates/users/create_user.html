@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+{% load add_attr %}
+
+{% block title %} Create User {% endblock %}
+
+{% block content %}
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-edit"></i>Create User</h1>
+          <p>User</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item"><a href="#">Create User</a></li>
+        </ul>
+      </div>
+      <div class="row">
+
+         <!-- My Forrrrrrrrrrrrrrrrrrm -->
+
+          <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Create User</h3>
+            <div class="tile-body">
+              <form method="post" enctype="multipart/form-data">
+
+                  {% csrf_token %}
+                  {{ form.non_field_errors }}
+
+                <div class="form-group">
+                {{ form.first_name.errors }}
+                <label class="control-label" for="{{ form.first_name.id_for_label }}">First Name</label>
+                {{ form.first_name|add_attr:"class:form-control,placeholder:Enter Your First Name" }}
+                </div>
+                  <div class="form-group">
+                {{ form.middle_name.errors }}
+                <label class="control-label" for="{{ form.middle_name.id_for_label }}">Middle Name</label>
+                {{ form.middle_name|add_attr:"class:form-control,placeholder:Enter Your Middle Name" }}
+                </div>
+                  <div class="form-group">
+                {{ form.last_name.errors }}
+                <label class="control-label" for="{{ form.last_name.id_for_label }}">Last Name</label>
+                {{ form.last_name|add_attr:"class:form-control,placeholder:'Enter Your Last Name" }}
+                </div>
+                <div class="form-group">
+                {{ form.username.errors }}
+                <label class="control-label" for="{{ form.username.id_for_label }}">Username</label>
+                {{ form.username|add_attr:"class:form-control,placeholder:Enter Your Username" }}
+                </div>
+                <div class="form-group">
+                {{ form.password.errors }}
+                <label class="control-label" for="{{ form.password.id_for_label }}">Password</label>
+                {{ form.password|add_attr:"class:form-control,placeholder:Enter Your Password" }}
+                </div>
+                  <div class="form-group">
+                {{ form.email.errors }}
+                <label class="control-label" for="{{ form.email.id_for_label }}">Email</label>
+                {{ form.email|add_attr:"class:form-control,placeholder:Enter Your Email" }}
+                </div>
+                <div class="form-group">
+                {{ form.phone.errors }}
+                <label class="control-label" for="{{ form.phone.id_for_label }}">Phone</label>
+                {{ form.phone|add_attr:"class:form-control,placeholder:Enter Your Phone" }}
+                </div>
+                <div class="form-group">
+                    {{ form.role.errors }}
+                    <label for="{{ form.role.id_for_label }}">Role</label>
+                    {{ form.role|add_attr:"class:form-control" }}
+                  </div>
+                  <div class="form-group">
+                    {{ form.branch.errors }}
+                    <label for="{{ form.branch.id_for_label }}">Branch</label>
+                    {{ form.branch|add_attr:"class:form-control" }}
+                  </div>
+                  <div class="form-group">
+                    {{ form.address.errors }}
+                    <label for="{{ form.address.id_for_label }}">Address</label>
+                    {{ form.address|add_attr:"class:form-control,placeholder:Enter Your Address" }}
+                  </div>
+                  <div class="form-group">
+                      {{ form.photo.errors }}
+                    <label for="{{ form.photo.id_for_label }}">Photo</label>
+                      {{ form.photo|add_attr:"class:form-control-file,aria-describedby=fileHelp" }}
+                  </div>
+                  <div class="form-group">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        {{ form.is_active|add_attr:"class:form-check-input" }}Is Active?
+                    </label>
+                  </div>
+                </div>
+                  <div class="form-group">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      {{ form.is_staff|add_attr:"class:form-check-input" }}Is Staff?
+                    </label>
+                  </div>
+                </div>
+                  <div class="tile-footer">
+              <button class="btn btn-primary" type="Submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save</button>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </main>
+
+
+{% endblock %}

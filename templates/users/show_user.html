@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %} User Detail {% endblock %}
+
+{% block content %}
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-file-text-o"></i>User Details</h1>
+          <p> All User Details </p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="#">User Details</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <section class="invoice">
+              <div class="row mb-4">
+                <div class="col-6">
+                  <h2 class="page-header"><img src="{% if user.photo %}{{ user.photo.url }}{% else %}{% static '/images/anonymous.png' %}{% endif %}" class="app-sidebar__user-avatar" height="100px" width="100px"> {{ user.username }}</h2>
+                </div>
+                <div class="col-6">
+                  <h5 class="text-right">{{ user.created_at }}</h5>
+                </div>
+              </div>
+              <div class="row invoice-info">
+                <div class="col-4">
+                  <address class="show_object"><strong>{{ user.first_name }} {{ user.middle_name }} {{ user.last_name }}</strong>
+                    <br>
+                    Address: {{ user.address }}
+                    <br>
+                    Phone: {{ user.phone }}
+                    <br>
+                    Email: {{ user.email }}
+                    <br>
+                    Role: {{ user.role }}
+                    <br>
+                    Branch: {{ user.branch.name }}
+                    <br>
+                    Joining Date: {{ user.created_at }}
+                    {% if user.updated_at %}
+                    <br>
+                    Last Update: {{ user.updated_at }}
+                    {% endif %}
+                  </address>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-right">
+                  <a class="btn btn-primary" href="{% url 'users-list' %}">Back To Main List</a>
+                <a class="btn btn-primary" href="{% url 'user-update' user.id %}">Update User</a>
+                <a href="#" onclick="ask_before_delete({{ user.id }})" class="btn btn-danger">Delete User</a>
+                </div>
+
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}
+
+{% block delete %}
+
+<script>
+  function ask_before_delete(id){
+      	swal({
+      		title: "Are you sure?",
+      		text: "You will not be able to recover this entry",
+      		type: "warning",
+      		showCancelButton: true,
+      		confirmButtonText: "Yes, delete it!",
+      		cancelButtonText: "No, cancel plx!",
+      		closeOnConfirm: true,
+      		closeOnCancel: true
+      	}, function(isConfirm) {
+      		if (isConfirm) {
+      		    window.location.assign("/user/"+id+"/delete/");
+      			swal("Deleted!", "Entry has been deleted.", "success");
+      		} else {
+      			swal("Cancelled", "Entry is safe :)", "error");
+      		}
+      	});
+      };
+    </script>
+
+{% endblock %}

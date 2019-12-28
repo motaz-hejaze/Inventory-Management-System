@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% load add_attr %}
+
+{% block title %} Update Tag {% endblock %}
+
+{% block content %}
+<main class="app-content">
+      <div class="app-title">
+        <div><h1><i class="fa fa-edit"></i>Update Tag</h1>
+          <p>Tag</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="#">Update Tag</a></li>
+        </ul>
+      </div>
+      <div class="row">
+
+         <!-- My Forrrrrrrrrrrrrrrrrrm -->
+
+          <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Update Tag</h3>
+            <div class="tile-body">
+                {% if message %}
+                <h1>{{ message }}</h1>
+                {% endif %}
+              <form method="post" enctype="multipart/form-data">
+
+                  {% csrf_token %}
+                  {{ form.non_field_errors }}
+
+                   <div class="form-group">
+                {{ form.name.errors }}
+                <label class="control-label" for="{{ form.name.id_for_label }}">Tag Name</label>
+                {{ form.name|add_attr:"class:form-control,placeholder:Enter Tag Name" }}
+                </div>
+
+                  <div class="form-group">
+                    {{ form.description.errors }}
+                    <label for="{{ form.description.id_for_label }}">Description</label>
+                    {{ form.description|add_attr:"class:form-control,placeholder:Enter Tag Description" }}
+                  </div>
+
+                  <div class="tile-footer">
+              <button class="btn btn-primary" type="Submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save</button>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </main>
+
+
+{% endblock %}
