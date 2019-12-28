@@ -1,18 +1,16 @@
-# Inventory-Managment-System
+A Management System with concept applicable for Inventories , stores any thing regarding keeping and storing items
 
-A Managment System with concept applicable for Inventories , stores any thing regarding keeping and storing items
+The system characteristics are:
 
-The system characterstics are:
-
-- Two Generators function to generate dummy data ( 1000 user and 10000 items )
-- Using python asyncio with generator function to keep the generation in background and not block request/response cycle
-- Multiuser system ( Three user types )
-- Using Datatables for more efficient data representation
-- Beautifull admin interface built on top of bootstrap
-- Modern notification cards that enhance the UX
-- Profile page for each user
-- Authorization System to permit only allowed user type to view the content of the page
-
+ - Two Generators function to generate dummy data ( 1000 user and 10000 items )
+ - Using python asyncio with generator function to keep the generation in background and not block request/response cycle
+ - Multiuser system ( Three user types )
+ - Using Datatables for more efficient data representation
+ - Beautiful admin interface built on top of bootstrap
+ - Modern notification cards that enhance the UX
+ - Profile page for each user
+ - Authorization System to permit only allowed user type to view the content of the page
+    
 Requirements:
 
 1 - python >= 3.4
