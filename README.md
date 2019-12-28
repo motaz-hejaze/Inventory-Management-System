@@ -4,11 +4,14 @@ A Managment System with concept applicable for Inventories , stores any thing re
 
 The system characterstics are:
 
-- A Multiuser system
-- A beautifull admin interface built on top of bootstrap
-- A modern notification cards that enhance the UX
-- A profile page for each user
-- An Authorization System to permit only allowed user type to view the content of the page
+- Two Generators function to generate dummy data ( 1000 user and 10000 items )
+- Using python asyncio with generator function to keep the generation in background and not block request/response cycle
+- Multiuser system ( Three user types )
+- Using Datatables for more efficient data representation
+- Beautifull admin interface built on top of bootstrap
+- Modern notification cards that enhance the UX
+- Profile page for each user
+- Authorization System to permit only allowed user type to view the content of the page
 
 Requirements:
 
