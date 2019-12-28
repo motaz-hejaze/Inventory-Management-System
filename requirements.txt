@@ -1,8 +1,6 @@
 asgiref==3.2.3
 Django==3.0
-django-background-tasks==1.2.5
 django-compat==1.0.15
-django-datatables-view==1.19.1
 Pillow==6.2.1
 pytz==2019.3
 six==1.13.0
